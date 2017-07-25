@@ -69,7 +69,7 @@ export class IceeyEditorComponent implements OnInit, ControlValueAccessor {
     this.onChangeCallback(this.value);
   }
   editorClick(_event:any){
-    //empty event, used only for triggering state changes.
+    //noop event, used only for triggering state changes.
   }
 
   //queryCommandState
