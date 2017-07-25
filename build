@@ -1,0 +1,1 @@
+ng build --base-href "/iceeywyg/" --output-path "./docs/"
