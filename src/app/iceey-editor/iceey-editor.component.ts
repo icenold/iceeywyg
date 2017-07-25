@@ -21,14 +21,17 @@ export class IceeyEditorComponent implements OnInit, ControlValueAccessor {
   ngOnInit() {
   }
   //viewchild
-  @ViewChild(`editor`) editor:any;
+  @ViewChild(`editor`) editorElem:any;
+  public get editor():HTMLDivElement {
+    return this.editorElem.nativeElement;
+  }
 
   //get set
   public get value():string{
-    return this.editor.nativeElement.innerHTML;
+    return this.editor.innerHTML;
   }
   public set value(_val){
-    this.editor.nativeElement.innerHTML = _val;
+    this.editor.innerHTML = _val;
   }
 
   //Inputs
@@ -60,15 +63,18 @@ export class IceeyEditorComponent implements OnInit, ControlValueAccessor {
     }
     this.onChangeCallback(this.value);
   }
-
-  //commandstates
-  public get isInsideBold():boolean{
-    return document.queryCommandState("Bold");
+  editorClick(_event:any){
+    //empty event, used only for triggering state changes.
   }
 
-  //formatters
-  formatBold(){
-    document.execCommand('Bold');
+  //queryCommandState
+  public queryCommandState(_state:string):boolean{
+    return document.queryCommandState(_state);
+  }
+
+  //execCommand
+  execCommand(_command:string){
+    document.execCommand(_command);
   }
 
 }

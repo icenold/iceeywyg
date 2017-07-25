@@ -1,13 +1,13 @@
 <div class="iceeywyg-container" >
   <div class="iceewyg-formatter" >
     <div class="iceewyg-format-group">
-      <button (click)="formatBold()" [class.active]="isInsideBold" >
+      <button (click)="execCommand('Bold')" [class.active]="queryCommandState('Bold')" >
         <i class="material-icons">format_bold</i>
       </button>
-      <button>
+      <button (click)="execCommand('Italic')" [class.active]="queryCommandState('Italic')" >
         <i class="material-icons">format_italic</i>
       </button>
-      <button>
+      <button (click)="execCommand('Underline')" [class.active]="queryCommandState('Underline')" >
         <i class="material-icons">format_underlined</i>
       </button>
     </div>
@@ -44,6 +44,7 @@
   <div #editor 
       class="iceewyg-editor" 
       contenteditable="true"
+      (click)="editorClick($event)"
       (input)="broadcastInput($event)"
       [style.min-height]="height"
       [style.width]="width" >
