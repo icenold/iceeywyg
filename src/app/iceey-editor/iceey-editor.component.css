@@ -13,7 +13,11 @@
     cursor: pointer;
 }
 .iceewyg-formatter button:hover{
-    color:grey;
+    color:darkgray;
+}
+.iceewyg-formatter button.active{
+    background-color: black;
+    color:white;
 }
 .iceeywyg-container{
     padding: 1px;
