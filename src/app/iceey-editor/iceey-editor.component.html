@@ -1,1 +1,53 @@
-<div contenteditable="true" [innerHtml]="stringModel" (input)="broadcastInput($event.target.innerHTML)" ></div>
+<div class="iceeywyg-container" >
+  <div class="iceewyg-formatter" >
+    <div class="iceewyg-format-group">
+      <button>
+        <i class="material-icons">format_bold</i>
+      </button>
+      <button>
+        <i class="material-icons">format_italic</i>
+      </button>
+      <button>
+        <i class="material-icons">format_underlined</i>
+      </button>
+    </div>
+
+    <div class="iceewyg-format-group">
+      <button>
+        <i class="material-icons">format_align_left</i>
+      </button>
+      <button>
+        <i class="material-icons">format_align_center</i>
+      </button>
+      <button>
+        <i class="material-icons">format_align_right</i>
+      </button>
+      <button>
+        <i class="material-icons">format_align_justify</i>
+      </button>
+    </div>
+
+    <div class="iceewyg-format-group">
+      <button>
+        <i class="material-icons">format_color_text</i>
+      </button>
+      <button>
+        <i class="material-icons">format_size</i>
+      </button>
+      <button>
+        <i class="material-icons">text_format</i>
+      </button>
+    </div>
+
+  </div>
+  
+  <div #editor 
+      class="iceewyg-editor" 
+      contenteditable="true" 
+      [innerHtml]="stringOutput" 
+      (input)="broadcastInput($event.target.innerHTML)"
+      [style.height]="height"
+      [style.width]="width" >
+  </div>
+</div>
+

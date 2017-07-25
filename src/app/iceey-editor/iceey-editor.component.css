@@ -1,3 +1,23 @@
-div[contenteditable]{
-    border: solid 1px lightgray;
+.iceewyg-editor{
+    border: solid 1px grey;
+}
+.iceewyg-format-group{
+    border: solid 1px grey;
+    display: inline block !important;
+}
+.iceewyg-formatter button{
+    display: inline-block;
+    border: none;
+    margin: 2.5px;
+    background-color: transparent;
+    cursor: pointer;
+}
+.iceewyg-formatter button:hover{
+    color:grey;
+}
+.iceeywyg-container{
+    padding: 1px;
+}
+.iceewyg-formatter{
+    display: flex;
 }

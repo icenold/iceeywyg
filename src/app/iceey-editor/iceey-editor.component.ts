@@ -1,4 +1,4 @@
-import { Component, OnInit, Provider, Input, forwardRef } from '@angular/core';
+import { Component, OnInit, Provider, Input, forwardRef, ViewChild } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 
@@ -20,8 +20,23 @@ export class IceeyEditorComponent implements OnInit, ControlValueAccessor {
 
   ngOnInit() {
   }
-  //stringModel - used only for listening changes to ngModel via writeValue(_val)
-  stringModel:string = ``;
+  //viewchild
+  @ViewChild(`editor`) editor:HTMLDivElement;
+
+  //stringOutput
+  public stringOutput:string = ``;
+
+  //get set
+  public get value():string{
+    return this.editor.innerHTML;
+  }
+  public set value(_val){
+    this.stringOutput = _val;
+  }
+
+  //Inputs
+  @Input() height:string = `200px`;
+  @Input() width:string = `100%`;
 
   //empty callbacks
   private onTouchedCallback = ()=>{};
@@ -37,7 +52,7 @@ export class IceeyEditorComponent implements OnInit, ControlValueAccessor {
   
   //accessors
   writeValue(_val:string){
-    this.stringModel =  _val;
+    this.value = _val;
   }
   broadcastInput(_val){
     this.onChangeCallback(_val);
