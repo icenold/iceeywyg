@@ -19,11 +19,16 @@ export class IceeyEditorComponent implements OnInit, ControlValueAccessor {
   constructor() { }
 
   ngOnInit() {
+    
   }
   //viewchild
   @ViewChild(`editor`) editorElem:any;
   public get editor():HTMLDivElement {
     return this.editorElem.nativeElement;
+  }
+  @ViewChild('colorPicker') colorPickerElem:any;
+  public get colorPicker():HTMLInputElement {
+    return this.colorPickerElem.nativeElement;
   }
 
   //get set
@@ -75,6 +80,22 @@ export class IceeyEditorComponent implements OnInit, ControlValueAccessor {
   //execCommand
   execCommand(_command:string){
     document.execCommand(_command);
+  }
+
+  //changeColor
+  changeColor(_event:any){
+    document.execCommand("foreColor", false, _event.target.value);
+    console.log(document.queryCommandValue("foreColor"));
+  }
+  openColorPicker(){
+    //let initialColor = this.colorPicker.value;
+    this.colorPicker.value = "rgb(0,0,0)";
+    this.colorPicker.click();
+  }
+
+  //queryCommandValue
+  queryCommandValue(_command){
+    return document.queryCommandValue(_command);
   }
 
 }
