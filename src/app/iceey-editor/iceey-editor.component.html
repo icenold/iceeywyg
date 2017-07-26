@@ -32,9 +32,20 @@
       <button>
         <i [style.color]="queryCommandValue('foreColor')" class="material-icons" (click)="openColorPicker()" >format_color_text</i>
       </button>
-      <button>
-        <i class="material-icons">format_size</i>
-      </button>
+      <!--FONT SIZE CONTROL START-->
+      <div style="display:inline-block; position:relative; border:solid 1px black; padding:0px 2.5px 0px 2.5px; " >
+        <button #sizePickerTrigger (click)="showSizePicker = !showSizePicker" >
+          <i class="material-icons">format_size</i>
+          <i class="material-icons">arrow_drop_down</i>
+        </button>
+        <div class="font-size-picker" [hidden]="!showSizePicker" >
+          <button (click)="changeSize($event,'<p>')" ><p>Paragraph</p></button>
+          <button (click)="changeSize($event,'<h1>')"><h1>Main header</h1></button>
+          <button (click)="changeSize($event,'<h2>')"><h2>Sub header</h2></button>
+          <button (click)="changeSize($event,'<h3>')"><h3>Title</h3></button>
+        </div>
+      </div>
+      <!--FONT SIZE CONTROL END-->
       <button>
         <i class="material-icons">text_format</i>
       </button>
