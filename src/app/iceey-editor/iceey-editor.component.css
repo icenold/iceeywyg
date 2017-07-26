@@ -39,6 +39,11 @@
 }
 
 /*menu picker*/
+.menu-container{
+    display:inline-block; 
+    position:relative; 
+    padding:0px 2.5px 0px 2.5px;
+}
 .menu-picker{
     z-index: 10;
     position: fixed;
@@ -49,4 +54,25 @@
     text-align: left;
     width: 100%;
     display: block;
+}
+.hidden{
+    display: none !important;
+}
+.font-size-trigger b{
+    position: relative;
+    top:-5px;
+}
+.font-size-trigger i{
+    position: relative;
+    left:-8px;
+    top: 2px;
+}
+.font-style-trigger b{
+    position: relative;
+    top: -5px;
+}
+.font-style-trigger i[class="material-icons"]{
+    position: relative;
+    top: 2px;
+    left:-8px;
 }

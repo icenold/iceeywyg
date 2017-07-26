@@ -106,4 +106,29 @@ export class IceeyEditorComponent implements OnInit, ControlValueAccessor {
     document.execCommand("formatBlock", false, _blockSize);
     this.showSizePicker = false;
   }
+
+  //fontstyle
+  fontStyles:any[] = [
+    "Times New Roman",
+    "Arial",
+    "Arial Black",
+    "Comic Sans MS",
+    "Lucida Console",
+    "Lucida Sans Unicode",
+    "Courier New",
+    "Trebuchet MS",
+  ].sort((a,b)=>{
+    if(a>b){
+      return 1;
+    }else if(a<b){
+      return -1;
+    }else{
+      return 0;
+    }
+  });
+  showStylePicker = false;
+  changeFontStyle(_style){
+    document.execCommand("fontName", false, _style);
+    this.showStylePicker = false;
+  }
 }
