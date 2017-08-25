@@ -33,7 +33,7 @@
         <i [style.color]="queryCommandValue('foreColor')" class="material-icons" (click)="openColorPicker()" >format_color_text</i>
       </button>
       <!--FONT SIZE CONTROL START-->
-      <div class="menu-container" >
+      <div class="menu-container" (mouseleave)="showSizePicker=false" >
         <button class="font-size-trigger" #sizePickerTrigger (click)="showSizePicker = !showSizePicker" >
           <b>Font Size</b>
           <i class="material-icons" [class.hidden]="showSizePicker" >arrow_drop_down</i>
@@ -47,7 +47,7 @@
         </div>
       </div>
       <!--FONT SIZE CONTROL END-->
-      <div class="menu-container" >
+      <div class="menu-container" (mouseleave)="showStylePicker=false" >
         <button class="font-style-trigger" (click)="showStylePicker = !showStylePicker" >
           <b>{{queryCommandValue('fontName').replace('"','').replace('"','') || 'Font Style'}}</b>
           <i class="material-icons" [class.hidden]="showStylePicker" >arrow_drop_down</i>
